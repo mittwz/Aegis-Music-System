@@ -1,0 +1,117 @@
+{
+  // Project metadata used in logs and documentation.
+  "branding": {
+    "name": "Aegis Music System",
+    "tagline": "Adaptive music direction for Dota 2 and Spotify",
+    "repo": "aegis-music-system",
+    "accent": "radiant-green"
+  },
+
+  // Default language for documentation and log wording.
+  // Alternatives you may keep for your own notes: "pt-BR"
+  "language": "en",
+
+  // Choose which playlist profile is active.
+  // Alternatives: "default", "custom_user_electronic", "copyrighted_mainstream"
+  "active_profile": "default",
+
+  // Local HTTP server used by Dota GSI.
+  "server": {
+    "host": "127.0.0.1",
+    "port": 3000,
+    "auth_token": "aegis_music_system"
+  },
+
+  // Spotify behavior.
+  "spotify": {
+    "enabled": true,
+    "playlist_switching_enabled": true,
+    "queue_enabled": false,
+    "pause_enabled": false,
+    "shuffle": true,
+    "cooldown_seconds": 18,
+    "random_start": false,
+    "victory_track_uri": null,
+    "defeat_track_uri": null
+  },
+
+  // Audio behavior.
+  "audio": {
+    // Base target volume before master gain is applied.
+    "base_volume": 45,
+
+    // Global loudness multiplier for the entire system.
+    // This is the main day-to-day volume control.
+    // Suggested values:
+    // 70  = quieter / headphones
+    // 100 = neutral
+    // 120 = louder speakers
+    // 140 = very aggressive output
+    "master_gain_percent": 100,
+
+    // Alternatives: "standard", "cinema"
+    "mode": "cinema",
+
+    // Fade speed per tick. Lower = smoother, higher = faster.
+    "fade_step": 4,
+
+    // Main loop speed.
+    "tick_interval_seconds": 1.0,
+
+    // HP thresholds used by the state tracker.
+    "low_hp_threshold": 0.28,
+    "critical_hp_threshold": 0.14,
+
+    // How often to repeat the 'still waiting for payload' warning.
+    "payload_warning_interval_seconds": 60.0,
+
+    // How long cinema mode keeps dramatic states alive.
+    "cinema_hold_seconds": {
+      "teamfight": 6.0,
+      "low_hp": 3.5,
+      "dead": 4.0
+    }
+  },
+
+  // Playlist profiles.
+  "profiles": {
+    "default": {
+      "menu": {"volume": 38, "playlist_name": "Stream Lobby", "playlist_uri": "spotify:playlist:2x9yhCClfYBNAZvPxzHNCu", "reason": "Dota menu"},
+      "hero_pick": {"volume": 30, "playlist_name": "Draft Focus", "playlist_uri": "spotify:playlist:37i9dQZF1DZ06evO3XaNhu", "reason": "Draft phase"},
+      "early_game": {"volume": 42, "playlist_name": "Spawn Energy", "playlist_uri": "spotify:playlist:76DR3PNoHa9OupODuzdMfN", "reason": "Game opening"},
+      "calm_lane": {"volume": 48, "playlist_name": "Lane Control", "playlist_uri": "spotify:playlist:1CtNYqwIohYhfTZf6CPLrT", "reason": "Map under control"},
+      "teamfight": {"volume": 18, "playlist_name": "Clash", "playlist_uri": "spotify:playlist:68MXCwPbRTrkFQiUJ4IRuh", "reason": "Heavy combat inferred"},
+      "low_hp": {"volume": 12, "playlist_name": "Keep Current", "playlist_uri": null, "reason": "Survival pressure"},
+      "dead": {"volume": 52, "playlist_name": "Respawn Drift", "playlist_uri": "spotify:playlist:2x9yhCClfYBNAZvPxzHNCu", "reason": "Death downtime"},
+      "late_game": {"volume": 22, "playlist_name": "Ancient Pressure", "playlist_uri": "spotify:playlist:3QiVQp4n7Vg4yns0yzAmyv", "reason": "Late game pressure"},
+      "victory": {"volume": 58, "playlist_name": "Victory Run", "playlist_uri": "spotify:playlist:76DR3PNoHa9OupODuzdMfN", "reason": "Victory confirmed"},
+      "defeat": {"volume": 28, "playlist_name": "Reset", "playlist_uri": "spotify:playlist:1CtNYqwIohYhfTZf6CPLrT", "reason": "Defeat confirmed"}
+    },
+
+    "custom_user_electronic": {
+      "menu": {"volume": 38, "playlist_name": "Stream Lobby", "playlist_uri": "spotify:playlist:2x9yhCClfYBNAZvPxzHNCu", "reason": "Dota menu"},
+      "hero_pick": {"volume": 30, "playlist_name": "Draft Focus", "playlist_uri": "spotify:playlist:37i9dQZF1DZ06evO3XaNhu", "reason": "Draft phase"},
+      "early_game": {"volume": 42, "playlist_name": "User Electronic", "playlist_uri": "spotify:playlist:1XZ9AoTDFtKyHvefOItLif", "reason": "Game opening"},
+      "calm_lane": {"volume": 48, "playlist_name": "User Electronic", "playlist_uri": "spotify:playlist:1XZ9AoTDFtKyHvefOItLif", "reason": "Map under control"},
+      "teamfight": {"volume": 18, "playlist_name": "Clash", "playlist_uri": "spotify:playlist:68MXCwPbRTrkFQiUJ4IRuh", "reason": "Heavy combat inferred"},
+      "low_hp": {"volume": 12, "playlist_name": "Keep Current", "playlist_uri": null, "reason": "Survival pressure"},
+      "dead": {"volume": 52, "playlist_name": "Respawn Drift", "playlist_uri": "spotify:playlist:2x9yhCClfYBNAZvPxzHNCu", "reason": "Death downtime"},
+      "late_game": {"volume": 22, "playlist_name": "Ancient Pressure", "playlist_uri": "spotify:playlist:3QiVQp4n7Vg4yns0yzAmyv", "reason": "Late game pressure"},
+      "victory": {"volume": 58, "playlist_name": "User Electronic", "playlist_uri": "spotify:playlist:1XZ9AoTDFtKyHvefOItLif", "reason": "Victory confirmed"},
+      "defeat": {"volume": 28, "playlist_name": "Reset", "playlist_uri": "spotify:playlist:1CtNYqwIohYhfTZf6CPLrT", "reason": "Defeat confirmed"}
+    },
+
+    "copyrighted_mainstream": {
+      "menu": {"volume": 38, "playlist_name": "Night Rider", "playlist_uri": "spotify:playlist:37i9dQZF1DX6GJXiuZRisr", "reason": "Dota menu"},
+      "hero_pick": {"volume": 30, "playlist_name": "User Electronic", "playlist_uri": "spotify:playlist:1XZ9AoTDFtKyHvefOItLif", "reason": "Draft phase"},
+      "early_game": {"volume": 42, "playlist_name": "Ultra Gaming", "playlist_uri": "spotify:playlist:37i9dQZF1DWYN9NBqvY7Tx", "reason": "Game opening"},
+      "calm_lane": {"volume": 48, "playlist_name": "User Electronic", "playlist_uri": "spotify:playlist:1XZ9AoTDFtKyHvefOItLif", "reason": "Map under control"},
+      "teamfight": {"volume": 18, "playlist_name": "Beast Mode", "playlist_uri": "spotify:playlist:37i9dQZF1DX76Wlfdnj7AP", "reason": "Heavy combat inferred"},
+      "low_hp": {"volume": 12, "playlist_name": "Keep Current", "playlist_uri": null, "reason": "Survival pressure"},
+      "dead": {"volume": 52, "playlist_name": "Deep Focus", "playlist_uri": "spotify:playlist:37i9dQZF1DWZeKCadgRdKQ", "reason": "Death downtime"},
+      "late_game": {"volume": 22, "playlist_name": "Epic Gaming Mix", "playlist_uri": "spotify:playlist:37i9dQZF1EIgoW4UXsEhgu", "reason": "Late game pressure"},
+      "victory": {"volume": 58, "playlist_name": "Beast Mode Dance", "playlist_uri": "spotify:playlist:37i9dQZF1DXdURFimg6Blm", "reason": "Victory confirmed"},
+      "defeat": {"volume": 28, "playlist_name": "Deep Focus", "playlist_uri": "spotify:playlist:37i9dQZF1DWZeKCadgRdKQ", "reason": "Defeat confirmed"}
+    }
+  }
+}
